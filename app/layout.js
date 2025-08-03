@@ -38,14 +38,14 @@ export default function RootLayout({ children }) {
         <body suppressHydrationWarning>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
-            forcedTheme="light"
+            defaultTheme="dark"
+            forcedTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
             {/* Animated Background */}
             {/* Animated Background */}
-            <AnimatedBackground />
+            {/* <AnimatedBackground /> */}
 
             {/* Content */}
             <div className="relative z-10">
@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
                 {children} <ChatBot />
               </main>
               <footer className="py-12 border border-b relative">
-                <div className="container px-4 mx-auto text-center text-black">
+                <div className="container px-4 mx-auto text-center text-white">
                   <p>2025 BumbleBee. All Rights Reserved</p>
                 </div>
               </footer>

@@ -7,7 +7,12 @@ const config = {
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'bee-yellow': '#FFC107',
+        'bee-yellow-light': '#FFD54F'
+      }
+    },
     screens: {
       x3s: { max: '375px' },
       xxs: { max: '616px' },
