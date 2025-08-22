@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { MobileFriendlyTooltip } from "@/components/mobile-friendly-tooltip"; 
+import { MobileFriendlyTooltip } from "@/components/shared/mobile-friendly-tooltip"; 
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 export default function CareerPathVisualizer() {

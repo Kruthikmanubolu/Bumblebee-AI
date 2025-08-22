@@ -1,5 +1,5 @@
 "use client";
-import HeroSection from "@/components/hero";
+import HeroSection from "@/components/shared/hero";
 import WhyBumbleBeeSection from "@/components/sections/home/whyBumbleBee";
 import FeaturesSection from "@/components/sections/home/features";
 import HowItWorksSection from "@/components/sections/home/howItWorks";
