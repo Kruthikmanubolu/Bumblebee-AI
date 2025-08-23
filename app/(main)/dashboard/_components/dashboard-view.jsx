@@ -33,6 +33,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import CareerPathVisualizer from "@/components/sections/careerpath/career-path-visualizer";
+import { SendReportAction } from "@/actions/send-report";
 const DashboardView = ({ insights }) => {
   const router = useRouter()
   // Transform salary data for the chart
@@ -50,14 +51,12 @@ const DashboardView = ({ insights }) => {
     if (!email) return toast.error("Please enter an email");
     setSending(true);
     try {
-      const res = await fetch("/api/send-report", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, insights }),
-      });
-      const data = await res.json();
-      if (res.ok) toast.success("Report sent successfully!");
-      else toast.error(data.error || "Failed to send report");
+      const result = await SendReportAction(email, insights)
+      if (result?.status === "sent") {
+        toast.success("Report sent successfully!");
+      } else {
+        toast.error(result?.error || "Failed to send report");
+      }
     } catch (error) {
       toast.error("An error occurred");
     } finally {

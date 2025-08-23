@@ -1,10 +1,10 @@
+'use server'
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import fetch from "node-fetch";
 
-export async function POST(req) {
-  const { email, insights } = await req.json();
+export async function SendReportAction(email, insights) {
 
   const pdfDoc = await PDFDocument.create();
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
@@ -221,12 +221,10 @@ BumbleBee AI Team`,
       ],
     });
 
-    return NextResponse.json({ status: "sent" });
+    return { status: "sent" };
   } catch (err) {
     console.error("Email error:", err);
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 }
-    );
+    return 
+      { error: "Failed to send email" }
   }
 }

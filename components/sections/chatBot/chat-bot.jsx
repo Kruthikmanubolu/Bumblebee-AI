@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ScrollArea, ScrollBar } from '../../ui/scroll-area';
 import CalendlyWidget from '@/components/calendlyWidget/calendly-widget';
+import { chatAction } from '@/actions/chat-bot';
 
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,12 +51,7 @@ export default function ChatBot() {
         setInput('');
 
         try {
-            const response = await fetch('/api/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: input }),
-            });
-            const data = await response.json();
+            const data = await chatAction(input)
 
             if (data.type === 'slots') {
                 setMessages((prev) => [
