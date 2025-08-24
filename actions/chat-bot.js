@@ -1,24 +1,21 @@
+"use server";
+
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Retry Function
 async function safeGenerateContent(model, prompt, retries = 3) {
   for (let i = 0; i < retries; i++) {
     try {
-      const result = await model.generateContent(prompt);
-      return result;
+      return await model.generateContent(prompt);
     } catch (error) {
       console.warn(`Retrying Gemini API... Attempt ${i + 1}`);
       if (i === retries - 1) throw error;
-      await new Promise((res) => setTimeout(res, 1000 * (i + 1))); // Backoff: 1s, 2s, 3s
+      await new Promise((res) => setTimeout(res, 1000 * (i + 1))); // backoff
     }
   }
 }
 
-export async function POST(request) {
+export async function chatAction(message) {
   try {
-    const { message } = await request.json();
-
-    // Simple keyword-based intent check (you can later replace this with AI intent detection)
     const lowerMsg = message.toLowerCase();
     const isSchedulingRequest =
       lowerMsg.includes("schedule") ||
@@ -27,17 +24,13 @@ export async function POST(request) {
       lowerMsg.includes("meeting");
 
     if (isSchedulingRequest) {
-      return new Response(
-        JSON.stringify({
-          reply: "Please choose a time below 👇",
-          type: "calendly",
-          url: "https://calendly.com/kruthikmanubolu/30min",
-        }),
-        { status: 200, headers: { "Content-Type": "application/json" } }
-      );
+      return {
+        reply: "Please choose a time below 👇",
+        type: "calendly",
+        url: "https://calendly.com/kruthikmanubolu/30min",
+      };
     }
 
-    // Otherwise, use Gemini to respond
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -57,21 +50,12 @@ User's Question: "${message}"
     const result = await safeGenerateContent(model, prompt);
     const reply = result.response.text().trim();
 
-    return new Response(JSON.stringify({ reply }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return { reply };
   } catch (error) {
-    console.error("Chat API Error:", error);
-    return new Response(
-      JSON.stringify({
-        reply:
-          "Our AI assistant is currently busy. Please try again later or contact us directly at kruthikmanubolu@gmail.com.",
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    console.error("Chat Action Error:", error);
+    return {
+      reply:
+        "Our AI assistant is currently busy. Please try again later or contact us directly at kruthikmanubolu@gmail.com.",
+    };
   }
 }
