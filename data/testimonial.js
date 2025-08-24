@@ -89,4 +89,13 @@ export const testimonial = [
       "I wasn’t even sure what direction to take. The career assessment gave me clarity and confidence to launch my own venture.",
     rating: 5,
   },
+  {
+    author: "Robert Miller",
+    role: "Entrepreneur",
+    company: "Self-Employed",
+    image: "/robert.png",
+    quote:
+      "I wasn’t even sure what direction to take. The career assessment gave me clarity and confidence to launch my own venture.",
+    rating: 5,
+  },
 ];
