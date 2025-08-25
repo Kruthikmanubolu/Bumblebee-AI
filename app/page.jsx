@@ -8,6 +8,7 @@ import TemplatesSection from "@/components/sections/home/templatesSection";
 import SeeItInActionSection from "@/components/sections/home/seeItInAction";
 import FaqSection from "@/components/sections/home/faq";
 import StartYourJourneySection from "@/components/sections/home/startYourJourneySection";
+import Comparison from "@/components/sections/home/comparison";
 export default function Home() {
   return (
     <div className="overflow-hidden">
@@ -15,6 +16,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <WhyBumbleBeeSection />
+      <Comparison />
       <HowItWorksSection />
       <TestimonialsSection />
       <TemplatesSection />
