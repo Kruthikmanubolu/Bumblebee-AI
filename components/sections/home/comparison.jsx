@@ -61,7 +61,7 @@ const Comparison = () => {
 
   return (
     <section className="w-full py-20 bg-background/40">
-      <div className="container px-4 md:px-6 lg:px-46">
+      <div className="container mx-auto px-4 md:px-6 lg:px-46">
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
