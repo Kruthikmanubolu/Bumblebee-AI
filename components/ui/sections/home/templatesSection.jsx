@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent } from '../../ui/card';
+import { Card, CardContent } from '../../shared/shadcn/card';
 import Image from 'next/image';
 import { templates } from '@/data/templates';
 const TemplatesSection = () => {

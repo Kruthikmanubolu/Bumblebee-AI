@@ -10,8 +10,8 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/shared/shadcn/card";
+import { Button } from "@/components/ui/shared/shadcn/button";
 import {
     AlertDialog,
     AlertDialogAction,
@@ -22,7 +22,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "@/components/ui/shared/shadcn/alert-dialog";
 import { deleteCoverLetter } from "@/actions/cover-letter";
 
 export default function CoverLetterList({ coverLetters }) {

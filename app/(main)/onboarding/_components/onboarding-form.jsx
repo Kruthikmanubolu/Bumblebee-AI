@@ -7,15 +7,15 @@ import { onboardingSchema } from '@/app/lib/schema'
 import { useRouter } from 'next/navigation'
 import {
   Card, CardContent, CardHeader, CardTitle, CardDescription
-} from '@/components/ui/card'
+} from '@/components/ui/shared/shadcn/card'
 import {
   Select, SelectValue, SelectContent, SelectItem,
   SelectTrigger, SelectGroup, SelectLabel
-} from '@/components/ui/select'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Button } from '@/components/ui/button'
+} from '@/components/ui/shared/shadcn/select'
+import { Label } from '@/components/ui/shared/shadcn/label'
+import { Input } from '@/components/ui/shared/shadcn/input'
+import { Textarea } from '@/components/ui/shared/shadcn/textarea'
+import { Button } from '@/components/ui/shared/shadcn/button'
 import useFetch from '@/hooks/use-fetch'
 import { updateUser } from '@/actions/user'
 import { toast } from 'sonner'

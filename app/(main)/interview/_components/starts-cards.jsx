@@ -1,5 +1,5 @@
 import { Brain, Target, Trophy } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/shared/shadcn/card";
 
 export default function StatsCards({ assessments }) {
     const getAverageScore = () => {

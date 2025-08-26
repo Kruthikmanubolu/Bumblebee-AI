@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Card, CardContent } from '../../ui/card'
+import { Card, CardContent } from '../../shared/shadcn/card'
 import { features } from '@/data/features'
 const FeaturesSection = () => {
   return (

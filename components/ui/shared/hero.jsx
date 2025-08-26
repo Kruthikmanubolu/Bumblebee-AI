@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/shared/shadcn/button'
 import Lottie from 'lottie-react'
 
 

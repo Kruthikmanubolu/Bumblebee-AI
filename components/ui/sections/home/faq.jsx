@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, AccordionItem, AccordionContent, AccordionTrigger } from '../../ui/accordion'
+import { Accordion, AccordionItem, AccordionContent, AccordionTrigger } from '../../shared/shadcn/accordion'
 import { faqs } from '@/data/faqs'
 const FaqSection = () => {
     return (

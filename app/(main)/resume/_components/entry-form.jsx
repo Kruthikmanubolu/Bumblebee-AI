@@ -5,16 +5,16 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format, parse } from "date-fns";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/shared/shadcn/button";
+import { Input } from "@/components/ui/shared/shadcn/input";
+import { Textarea } from "@/components/ui/shared/shadcn/textarea";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/shared/shadcn/card";
 import { entrySchema } from "@/app/lib/schema";
 import { Sparkles, PlusCircle, X, Pencil, Loader2 } from "lucide-react";
 import { improveWithAI } from "@/actions/resume";

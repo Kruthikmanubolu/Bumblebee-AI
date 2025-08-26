@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { Card, CardContent } from "../../ui/card"
+import { Card, CardContent } from "../../shared/shadcn/card"
 import Image from "next/image"
 import { testimonial } from "@/data/testimonial"
 import { useKeenSlider } from "keen-slider/react"

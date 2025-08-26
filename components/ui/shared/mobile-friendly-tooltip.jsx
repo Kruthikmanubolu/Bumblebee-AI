@@ -4,7 +4,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/shared/shadcn/tooltip";
 
 export function MobileFriendlyTooltip({ children, content }) {
   const [open, setOpen] = useState(false);

@@ -3,8 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ScrollArea, ScrollBar } from '../../ui/scroll-area';
-import CalendlyWidget from '@/components/calendlyWidget/calendly-widget';
+import { ScrollArea, ScrollBar } from '../../shared/shadcn/scroll-area';
+import CalendlyWidget from '@/components/ui/sections/chatBot/calendlyWidget/calendly-widget';
 import { chatAction } from '@/actions/chat-bot';
 
 export default function ChatBot() {

@@ -2,16 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/shared/shadcn/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/shared/shadcn/card";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/shared/shadcn/radio-group";
+import { Label } from "@/components/ui/shared/shadcn/label";
 import { generateQuiz, saveQuizResult } from "@/actions/interview";
 import QuizResult from "./quiz-result";
 import useFetch from "@/hooks/use-fetch";

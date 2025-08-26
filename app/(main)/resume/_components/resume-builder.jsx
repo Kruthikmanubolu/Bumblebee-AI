@@ -13,10 +13,10 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import MDEditor from "@uiw/react-md-editor";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/shared/shadcn/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/shared/shadcn/tabs";
+import { Textarea } from "@/components/ui/shared/shadcn/textarea";
+import { Input } from "@/components/ui/shared/shadcn/input";
 import { saveResume } from "@/actions/resume";
 import { EntryForm } from "./entry-form";
 import useFetch from "@/hooks/use-fetch";

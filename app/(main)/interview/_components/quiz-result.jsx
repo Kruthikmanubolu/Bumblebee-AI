@@ -1,9 +1,9 @@
 "use client";
 
 import { Trophy, CheckCircle2, XCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { CardContent, CardFooter } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/shared/shadcn/button";
+import { CardContent, CardFooter } from "@/components/ui/shared/shadcn/card";
+import { Progress } from "@/components/ui/shared/shadcn/progress";
 
 export default function QuizResult({
   result,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../../ui/button'
+import { Button } from '../../shared/shadcn/button'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 const StartYourJourneySection = () => {

@@ -24,15 +24,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
+} from "@/components/ui/shared/shadcn/card";
+import { Badge } from "@/components/ui/shared/shadcn/badge";
+import { Progress } from "@/components/ui/shared/shadcn/progress";
 import { toast } from "sonner";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/shared/shadcn/input";
+import { Button } from "@/components/ui/shared/shadcn/button";
 import { useRouter } from "next/navigation";
-import CareerPathVisualizer from "@/components/sections/careerpath/career-path-visualizer";
+import CareerPathVisualizer from "@/components/ui/sections/careerpath/career-path-visualizer";
 import { SendReportAction } from "@/actions/send-report";
 const DashboardView = ({ insights }) => {
   const router = useRouter()

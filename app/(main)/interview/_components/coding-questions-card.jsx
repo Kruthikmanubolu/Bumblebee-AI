@@ -1,9 +1,9 @@
 "use client";
 
 import Editor from "@monaco-editor/react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/shared/shadcn/button";
 import { useCodingQuestion } from "@/app/hooks/useCodingQuestion";
-import { Card, CardHeader, CardContent, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardHeader, CardContent, CardTitle, CardFooter } from "@/components/ui/shared/shadcn/card";
 
 export default function CodingQuestionCard() {
   const {

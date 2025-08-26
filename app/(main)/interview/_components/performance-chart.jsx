@@ -15,7 +15,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/shared/shadcn/card";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
 

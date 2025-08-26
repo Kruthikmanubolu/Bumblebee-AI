@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import MDEditor from "@uiw/react-md-editor";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/shared/shadcn/button";
 import { Save, Download, Edit, Monitor, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import html2pdf from "html2pdf.js/dist/html2pdf.min.js";
