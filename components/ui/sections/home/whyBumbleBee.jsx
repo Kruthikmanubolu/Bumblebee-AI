@@ -5,7 +5,7 @@ const WhyBumbleBeeSection = () => {
         <section className="w-full py-20 bg-background/30">
             <div className="container mx-auto px-4 md:px-6">
                 <h2 className="text-4xl font-bond text-center mb-4">
-                    Why BumbleBee?
+                    Why Fly With Us?
                 </h2>
                 <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
                     We combine AI-powered technology with industry expertise to give your career the boost it deserves.

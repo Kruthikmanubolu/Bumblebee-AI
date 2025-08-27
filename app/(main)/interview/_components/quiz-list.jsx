@@ -36,9 +36,15 @@ export default function QuizList({ assessments }) {
                 Review your past quiz performance
               </CardDescription>
             </div>
-            <Button onClick={() => router.push("/interview/mock")} className='mt-2 md:mt-0'>
-              Start New Exam
-            </Button>
+            <div>
+              <Button onClick={() => router.push("/interview/quiz")} className='mt-2 mr-2 md:mt-0'>
+                Start New Quiz
+              </Button>
+
+              <Button onClick={() => router.push("/interview/coding")} className='mt-2 md:mt-0'>
+                Start Coding
+              </Button>
+            </div>
           </div>
         </CardHeader>
         <CardContent>
