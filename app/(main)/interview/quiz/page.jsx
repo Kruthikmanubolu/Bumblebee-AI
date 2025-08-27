@@ -17,15 +17,6 @@ export default async function MockInterviewPage() {
 
   console.log("User industry:", user?.industry);
 
-  const sampleQuestion = {
-    title: "FizzBuzz",
-    description: "Write a program that prints the numbers from 1 to 100...",
-    difficulty: "Easy",
-    sampleInput: "",
-    sampleOutput: "1\n2\nFizz\n4\nBuzz\n…",
-    hint: "Use modulo (%) to test divisibility.",
-  };
-
   return (
     <div className="container mx-auto space-y-8 py-10">
       {/* Back Button */}

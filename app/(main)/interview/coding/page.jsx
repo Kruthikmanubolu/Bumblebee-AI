@@ -35,13 +35,6 @@ export default async function MockInterviewPage() {
         </p>
       </div>
 
-      {/* Main Content */}
-        {/* Quiz Card */}
-        {/* <div className="p-6 rounded-2xl shadow-md bg-white/90 backdrop-blur">
-          <h2 className="text-xl font-semibold mb-4">Quick Quiz</h2>
-          <Quiz />
-        </div> */}
-
         {/* Coding Question (if tech) */}
         {user?.industry && user.industry.toLowerCase().startsWith("tech") ? (
           <div className="p-6 rounded-2xl shadow-md bg-white/90 backdrop-blur">
