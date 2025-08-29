@@ -7,6 +7,7 @@ import { dark } from "@clerk/themes";
 import { Toaster } from "sonner";
 import AnimatedBackground from "@/components/ui/sections/animatedBacground/animated-background";
 import ChatBot from "@/components/ui/sections/chatBot/chat-bot";
+import PageLoader from "@/components/ui/shared/page-loader"; // ⬅️ new client component
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,11 +26,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-      }}
-    >
+    <ClerkProvider appearance={{ baseTheme: dark }}>
       <html
         suppressHydrationWarning
         lang="en"
@@ -43,16 +40,18 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            {/* Animated Background */}
+            {/* Loader Overlay */}
+            <PageLoader />
+
             {/* Animated Background */}
             <AnimatedBackground />
 
             {/* Content */}
             <div className="relative z-10">
-              {/* header */}
               <Header />
               <main className="min-h-screen">
-                {children} <ChatBot />
+                {children}
+                <ChatBot />
               </main>
               <footer className="py-12 border border-b relative">
                 <div className="container px-4 mx-auto text-center text-black">
