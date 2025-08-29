@@ -60,7 +60,7 @@ const HeroSection = () => {
 
                 <div className='flex justify-center space-x-4'>
                     <Link href='/dashboard'>
-                        <Button size='lg' className='px-8' onClick={handleClick}>
+                        <Button size='lg' className='px-8 hover:cursor-pointer' onClick={handleClick}>
                             Get Started
                         </Button>
                     </Link>

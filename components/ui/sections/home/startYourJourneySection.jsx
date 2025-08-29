@@ -17,7 +17,7 @@ const StartYourJourneySection = () => {
                     <Link href="/dashboard">
                         <Button
                             size="lg"
-                            className="h-11 animate-bounce bg-black text-white"
+                            className="h-11 animate-bounce bg-black text-white hover:cursor-pointer"
                             variant="primary"
                         >
                             Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
