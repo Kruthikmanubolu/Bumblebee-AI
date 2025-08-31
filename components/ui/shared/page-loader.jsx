@@ -2,6 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Lottie from "lottie-react";
+import beeAnimation from "@/public/bumblebee.json"; // adjust path
 
 export default function PageLoader() {
   const pathname = usePathname();
@@ -11,7 +13,7 @@ export default function PageLoader() {
     if (!pathname) return;
     setLoading(true);
 
-    const timer = setTimeout(() => setLoading(false), 800);
+    const timer = setTimeout(() => setLoading(false), 3500);
     return () => clearTimeout(timer);
   }, [pathname]);
 
@@ -19,7 +21,11 @@ export default function PageLoader() {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white/80 z-[9999]">
-      <div className="w-14 h-14 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+      <Lottie 
+        animationData={beeAnimation} 
+        loop={true} 
+        className="w-64 h-64" 
+      />
     </div>
   );
 }
