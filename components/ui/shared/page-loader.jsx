@@ -24,7 +24,7 @@ export default function PageLoader() {
       <Lottie 
         animationData={beeAnimation} 
         loop={true} 
-        className="w-64 h-64" 
+        className="w-32 h-32" 
       />
     </div>
   );
