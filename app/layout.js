@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/ui/shared/header";
@@ -7,16 +7,13 @@ import { dark } from "@clerk/themes";
 import { Toaster } from "sonner";
 import AnimatedBackground from "@/components/ui/sections/animatedBacground/animated-background";
 import ChatBot from "@/components/ui/sections/chatBot/chat-bot";
-import PageLoader from "@/components/ui/shared/page-loader"; // ⬅️ new client component
+import PageLoader from "@/components/ui/shared/page-loader";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const IBM = IBM_Plex_Sans({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // choose weights you need
+  display: "swap", // prevents invisible text while loading
 });
 
 export const metadata = {
@@ -30,7 +27,7 @@ export default function RootLayout({ children }) {
       <html
         suppressHydrationWarning
         lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${IBM.className} antialiased`}
       >
         <body suppressHydrationWarning>
           <ThemeProvider
