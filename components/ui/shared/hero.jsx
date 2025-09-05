@@ -72,6 +72,8 @@ const HeroSection = () => {
                         loop
                         autoplay
                         className="md:mx-auto md:w-[700px] lg:w-[1200px]"
+
+                        
                     />
                 </div>
             </div>
