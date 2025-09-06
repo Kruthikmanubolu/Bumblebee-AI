@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/shared/shadcn/card";
 import { MobileFriendlyTooltip } from "@/components/ui/shared/mobile-friendly-tooltip"; 
 import { TooltipProvider } from "@/components/ui/shared/shadcn/tooltip";
+import { Loader2 } from "lucide-react";
 
 export default function CareerPathVisualizer() {
     const [insight, setInsight] = useState(null);
@@ -18,7 +19,7 @@ export default function CareerPathVisualizer() {
         fetchInsight();
     }, []);
 
-    if (!insight) return <div className="text-center py-10">Loading career data...</div>;
+    if (!insight) return <div className="flex text-center justify-center gap-2 py-10"><Loader2 className="w-6 h-6 animate-spin text-blue-500" />Loading career data...</div>;
 
     const rolesList = insight.salaryRanges || [];
     const careerPath =

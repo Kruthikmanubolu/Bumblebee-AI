@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import { motion } from "framer-motion";
 import { generateJobSearchComparisonOverYears } from "@/actions/comparison";
+import { Loader2 } from "lucide-react";
 
 // ✅ Custom Tooltip
 const CustomTooltip = ({ active, payload, label }) => {
@@ -86,9 +87,11 @@ const Comparison = () => {
         >
           <div className="w-full h-[300px]">
             {loading ? (
-              <div className="flex justify-center items-center h-full text-muted-foreground">
-                Loading chart...
+              <>
+              <div className="flex justify-center items-center h-full text-muted-foreground gap-2">
+                <Loader2 className="h-6 w-6 animate-spin text-blue-500" /> Loading chart...
               </div>
+              </>
             ) : (
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData}>
