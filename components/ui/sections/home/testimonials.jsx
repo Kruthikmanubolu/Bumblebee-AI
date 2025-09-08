@@ -13,7 +13,7 @@ const TestimonialsSection = () => {
         mode: "free-snap",
         slides: {
             perView: 1,
-            spacing: 16,
+            spacing: 32,
         },
         breakpoints: {
             "(min-width: 768px)": {
@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
                     {testimonial.map((t, index) => (
                         <motion.div
                             key={index}
-                            className="keen-slider__slide"
+                            className="keen-slider__slide mr-4"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: index * 0.2 }}
