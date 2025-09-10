@@ -32,7 +32,7 @@ export const testimonial = [
     company: "Analytics Hub",
     image: "/james.png",
     quote:
-      "The mock interviews gave me so much confidence. I was ready for every tough question they threw at me.",
+      "The mock interviews gave me so much confidence. I was ready for every tough question.",
     rating: 5,
   },
   {
