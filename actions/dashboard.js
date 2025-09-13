@@ -30,6 +30,9 @@ Analyze the current state of the ${industry} industry and provide insights in ON
         { "title": "string", "years": number, "description": "string", "icon": "🧑‍💻" }
       ]
     }
+  ],
+  "jobOpenings": [
+    { "country": "string", "coordinates": [longitude, latitude], "openings": number }
   ]
 }
 
@@ -42,7 +45,9 @@ IMPORTANT RULES:
     - Each entry's "path" should have exactly 5 steps, ordered from entry-level to senior-level.
     - Use clear, realistic descriptions for each step.
 - Growth rate should be a percentage number (e.g., 4.5).
+- jobOpenings must include all possible countries relevant to this industry, with realistic coordinates and opening counts.
 `;
+
 
   const result = await model.generateContent(prompt);
   const response = result.response;
