@@ -34,6 +34,7 @@ import { Button } from "@/components/ui/shared/shadcn/button";
 import { useRouter } from "next/navigation";
 import CareerPathVisualizer from "@/components/ui/sections/careerpath/career-path-visualizer";
 import { SendReportAction } from "@/actions/send-report";
+import JobOpeningsHeatmap from "@/components/ui/sections/heatmap/job-openings";
 const DashboardView = ({ insights }) => {
   const router = useRouter()
   // Transform salary data for the chart
@@ -312,6 +313,9 @@ const DashboardView = ({ insights }) => {
           </CardContent>
         </Card>
       </div>
+      {insights.jobOpenings && insights.jobOpenings.length > 0 && (
+        <JobOpeningsHeatmap jobOpenings={insights.jobOpenings} />
+      )}
     </div>
   );
 };

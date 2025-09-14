@@ -85,6 +85,7 @@ model IndustryInsight {
 
 
   recommendedSkills String[]
+  jobOpenings    Json[]
 
   lastUpdated DateTime @default(now())
   nextUpdate  DateTime
