@@ -34,7 +34,8 @@ import { Button } from "@/components/ui/shared/shadcn/button";
 import { useRouter } from "next/navigation";
 import CareerPathVisualizer from "@/components/ui/sections/careerpath/career-path-visualizer";
 import { SendReportAction } from "@/actions/send-report";
-import JobOpeningsHeatmap from "@/components/ui/sections/heatmap/job-openings";
+import JobOpeningsHeatmap from "@/components/ui/sections/industryInsights/job-openings";
+import JobFeed from "@/components/ui/sections/industryInsights/job-feed";
 const DashboardView = ({ insights }) => {
   const router = useRouter()
   // Transform salary data for the chart
@@ -316,6 +317,12 @@ const DashboardView = ({ insights }) => {
       {insights.jobOpenings && insights.jobOpenings.length > 0 && (
         <JobOpeningsHeatmap jobOpenings={insights.jobOpenings} />
       )}
+      <Card className="py-10">
+        <CardContent>
+        <h2 className="text-xl font-bold mb-4">Live Job Feed</h2>
+        <JobFeed />
+        </CardContent>
+      </Card>
     </div>
   );
 };
