@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { fetchJobs } from "@/actions/fetch-jobs";
 import { Button } from "@/components/ui/shared/shadcn/button";
 import { Input } from "@/components/ui/shared/shadcn/input";
@@ -33,6 +33,10 @@ const JobFeed = () => {
       setLoading(false);
     }
   };
+
+    useEffect(() => {
+    handleFetch();
+  }, []);
 
   return (
     <div className="space-y-4">
@@ -80,7 +84,6 @@ const JobFeed = () => {
 
       {/* Job Results */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {jobs.length === 0 && !loading && <p>No jobs found.</p>}
         {jobs.map((job) => (
           <div
             key={job.id}
