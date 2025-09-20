@@ -16,6 +16,15 @@ export default function ChatBot() {
     const chatRef = useRef(null);
     const [otpSession, setOtpSession] = useState(null); // store OTP state
 
+    const TypingDots = () => (
+        <div className="flex space-x-1 self-start px-3 py-2 rounded-lg bg-blue-100 text-blue-800 max-w-[70%]">
+            <span className="animate-pulse">•</span>
+            <span className="animate-pulse delay-150">•</span>
+            <span className="animate-pulse delay-300">•</span>
+        </div>
+    );
+
+
 
     // Auto scroll to bottom on new message
     useEffect(() => {
@@ -47,11 +56,14 @@ export default function ChatBot() {
         }
 
         const userMessage = { text: input, sender: 'user' };
-        setMessages((prev) => [...prev, userMessage]);
+        setMessages((prev) => [...prev, userMessage, { type: 'typing', sender: 'bot' }]);
         setInput('');
 
         try {
-            const data = await chatAction(input)
+            const data = await chatAction(input);
+
+            // Remove typing placeholder
+            setMessages((prev) => prev.filter((m) => m.type !== 'typing'));
 
             if (data.type === 'slots') {
                 setMessages((prev) => [
@@ -68,19 +80,19 @@ export default function ChatBot() {
                 setMessages((prev) => [
                     ...prev,
                     { text: data.reply, sender: 'bot' },
-                    { type: 'calendly', url: data.url, sender: 'bot' }, // 👈 Calendly message
+                    { type: 'calendly', url: data.url, sender: 'bot' },
                 ]);
             } else {
                 setMessages((prev) => [...prev, { text: data.reply, sender: 'bot' }]);
             }
-
         } catch {
             setMessages((prev) => [
-                ...prev,
+                ...prev.filter((m) => m.type !== 'typing'),
                 { text: 'Error reaching AI.', sender: 'bot' },
             ]);
         }
     };
+
 
 
     const handleSlotBooking = async (slot) => {
@@ -180,7 +192,9 @@ export default function ChatBot() {
                             <div ref={chatRef} className="flex flex-col space-y-2">
                                 {messages.map((msg, idx) => (
                                     <div key={idx} className="flex flex-col">
-                                        {msg.type === 'slots' ? (
+                                        {msg.type === 'typing' ? (
+                                            <TypingDots />
+                                        ) : msg.type === 'slots' ? (
                                             <>
                                                 <div className="bg-blue-100 text-blue-800 self-start px-3 py-2 rounded-lg text-sm max-w-[70%] mb-2">
                                                     {msg.text}
@@ -211,8 +225,8 @@ export default function ChatBot() {
                                         ) : (
                                             <div
                                                 className={`px-3 py-2 rounded-lg text-sm max-w-[70%] ${msg.sender === 'user'
-                                                    ? 'bg-gray-200 text-gray-800 self-end'
-                                                    : 'bg-blue-100 text-blue-800 self-start'
+                                                        ? 'bg-gray-200 text-gray-800 self-end'
+                                                        : 'bg-blue-100 text-blue-800 self-start'
                                                     }`}
                                             >
                                                 {msg.text}
