@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -14,7 +16,12 @@ import {
 import { toast } from "sonner";
 import MDEditor from "@uiw/react-md-editor";
 import { Button } from "@/components/ui/shared/shadcn/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/shared/shadcn/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/shared/shadcn/tabs";
 import { Textarea } from "@/components/ui/shared/shadcn/textarea";
 import { Input } from "@/components/ui/shared/shadcn/input";
 import { saveResume } from "@/actions/resume";
@@ -100,7 +107,6 @@ export default function ResumeBuilder({ initialContent }) {
       toast.error(summaryImproveError.message || "Failed to improve summary");
     }
   }, [improvedSummary, summaryImproveError, isImprovingSummary, setValue]);
-
 
   const getContactMarkdown = () => {
     const { contactInfo } = formValues;
@@ -328,144 +334,144 @@ export default function ResumeBuilder({ initialContent }) {
               </Button>
             </div>
 
-          {/* Skills */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Skills</h3>
-            <Controller
-              name="skills"
-              control={control}
-              render={({ field }) => (
-                <Textarea
-                  {...field}
-                  className="h-32"
-                  placeholder="List your key skills..."
-                  error={errors.skills}
-                />
+            {/* Skills */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium">Skills</h3>
+              <Controller
+                name="skills"
+                control={control}
+                render={({ field }) => (
+                  <Textarea
+                    {...field}
+                    className="h-32"
+                    placeholder="List your key skills..."
+                    error={errors.skills}
+                  />
+                )}
+              />
+              {errors.skills && (
+                <p className="text-sm text-red-500">{errors.skills.message}</p>
               )}
-            />
-            {errors.skills && (
-              <p className="text-sm text-red-500">{errors.skills.message}</p>
-            )}
-          </div>
+            </div>
 
-          {/* Experience */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Work Experience</h3>
-            <Controller
-              name="experience"
-              control={control}
-              render={({ field }) => (
-                <EntryForm
-                  type="Experience"
-                  entries={field.value}
-                  onChange={field.onChange}
-                />
+            {/* Experience */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium">Work Experience</h3>
+              <Controller
+                name="experience"
+                control={control}
+                render={({ field }) => (
+                  <EntryForm
+                    type="Experience"
+                    entries={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
+              />
+              {errors.experience && (
+                <p className="text-sm text-red-500">
+                  {errors.experience.message}
+                </p>
               )}
-            />
-            {errors.experience && (
-              <p className="text-sm text-red-500">
-                {errors.experience.message}
-              </p>
-            )}
-          </div>
+            </div>
 
-          {/* Education */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Education</h3>
-            <Controller
-              name="education"
-              control={control}
-              render={({ field }) => (
-                <EntryForm
-                  type="Education"
-                  entries={field.value}
-                  onChange={field.onChange}
-                />
+            {/* Education */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium">Education</h3>
+              <Controller
+                name="education"
+                control={control}
+                render={({ field }) => (
+                  <EntryForm
+                    type="Education"
+                    entries={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
+              />
+              {errors.education && (
+                <p className="text-sm text-red-500">
+                  {errors.education.message}
+                </p>
               )}
-            />
-            {errors.education && (
-              <p className="text-sm text-red-500">
-                {errors.education.message}
-              </p>
-            )}
-          </div>
+            </div>
 
-          {/* Projects */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Projects</h3>
-            <Controller
-              name="projects"
-              control={control}
-              render={({ field }) => (
-                <EntryForm
-                  type="Project"
-                  entries={field.value}
-                  onChange={field.onChange}
-                />
+            {/* Projects */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium">Projects</h3>
+              <Controller
+                name="projects"
+                control={control}
+                render={({ field }) => (
+                  <EntryForm
+                    type="Project"
+                    entries={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
+              />
+              {errors.projects && (
+                <p className="text-sm text-red-500">
+                  {errors.projects.message}
+                </p>
               )}
+            </div>
+          </form>
+        </TabsContent>
+
+        <TabsContent value="preview">
+          {activeTab === "preview" && (
+            <Button
+              variant="link"
+              type="button"
+              className="mb-2"
+              onClick={() =>
+                setResumeMode(resumeMode === "preview" ? "edit" : "preview")
+              }
+            >
+              {resumeMode === "preview" ? (
+                <>
+                  <Edit className="h-4 w-4" />
+                  Edit Resume
+                </>
+              ) : (
+                <>
+                  <Monitor className="h-4 w-4" />
+                  Show Preview
+                </>
+              )}
+            </Button>
+          )}
+
+          {activeTab === "preview" && resumeMode !== "preview" && (
+            <div className="flex p-3 gap-2 items-center border-2 border-yellow-600 text-yellow-600 rounded mb-2">
+              <AlertTriangle className="h-5 w-5" />
+              <span className="text-sm">
+                You will lose editied markdown if you update the form data.
+              </span>
+            </div>
+          )}
+          <div className="border rounded-lg">
+            <MDEditor
+              value={previewContent}
+              onChange={setPreviewContent}
+              height={800}
+              preview={resumeMode}
             />
-            {errors.projects && (
-              <p className="text-sm text-red-500">
-                {errors.projects.message}
-              </p>
-            )}
           </div>
-        </form>
-      </TabsContent>
-
-      <TabsContent value="preview">
-        {activeTab === "preview" && (
-          <Button
-            variant="link"
-            type="button"
-            className="mb-2"
-            onClick={() =>
-              setResumeMode(resumeMode === "preview" ? "edit" : "preview")
-            }
-          >
-            {resumeMode === "preview" ? (
-              <>
-                <Edit className="h-4 w-4" />
-                Edit Resume
-              </>
-            ) : (
-              <>
-                <Monitor className="h-4 w-4" />
-                Show Preview
-              </>
-            )}
-          </Button>
-        )}
-
-        {activeTab === "preview" && resumeMode !== "preview" && (
-          <div className="flex p-3 gap-2 items-center border-2 border-yellow-600 text-yellow-600 rounded mb-2">
-            <AlertTriangle className="h-5 w-5" />
-            <span className="text-sm">
-              You will lose editied markdown if you update the form data.
-            </span>
+        </TabsContent>
+        <div className="hidden">
+          <div id="resume-pdf">
+            <MDEditor.Markdown
+              source={previewContent}
+              style={{
+                background: "white",
+                color: "black",
+              }}
+            />
           </div>
-        )}
-        <div className="border rounded-lg">
-          <MDEditor
-            value={previewContent}
-            onChange={setPreviewContent}
-            height={800}
-            preview={resumeMode}
-          />
         </div>
-      </TabsContent>
-      <div className="hidden">
-        <div id="resume-pdf">
-          <MDEditor.Markdown
-            source={previewContent}
-            style={{
-              background: "white",
-              color: "black",
-            }}
-          />
-        </div>
-      </div>
-    </Tabs>
-    </div >
+      </Tabs>
+    </div>
   );
 }

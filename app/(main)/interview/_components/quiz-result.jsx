@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client";
 
 import { Trophy, CheckCircle2, XCircle } from "lucide-react";
@@ -13,7 +15,7 @@ export default function QuizResult({
   onStartNew,
 }) {
   if (!result) return null;
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="mx-auto">
@@ -64,12 +66,15 @@ export default function QuizResult({
       </CardContent>
 
       {!hideStartNew && (
-        <CardFooter className='flex flex-col mt-4 gap-4'>
+        <CardFooter className="flex flex-col mt-4 gap-4">
           <Button onClick={onStartNew} className="w-full">
             Start New Quiz
           </Button>
 
-          <Button onClick={() => router.push("/interview/coding")} className="w-full">
+          <Button
+            onClick={() => router.push("/interview/coding")}
+            className="w-full"
+          >
             Start Coding
           </Button>
         </CardFooter>

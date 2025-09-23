@@ -1,11 +1,10 @@
-'use server'
+"use server";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import fetch from "node-fetch";
 
 export async function SendReportAction(email, insights) {
-
   const pdfDoc = await PDFDocument.create();
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
@@ -59,7 +58,7 @@ export async function SendReportAction(email, insights) {
   drawSubHeader("Salary Ranges");
   insights.salaryRanges.forEach((range) => {
     drawText(
-      `${range.role}: $${range.min} - $${range.max} (Median: $${range.median})`
+      `${range.role}: $${range.min} - $${range.max} (Median: $${range.median})`,
     );
   });
   y -= 10;
@@ -74,10 +73,10 @@ export async function SendReportAction(email, insights) {
 
   drawSubHeader("Final Thoughts");
   drawText(
-    "This report is generated to help you make data-driven career decisions."
+    "This report is generated to help you make data-driven career decisions.",
   );
   drawText(
-    "Explore the in-demand skills, align with market trends, and aim for roles with solid growth."
+    "Explore the in-demand skills, align with market trends, and aim for roles with solid growth.",
   );
   drawText("You've got this!");
   y -= 30;
@@ -224,7 +223,9 @@ BumbleBee AI Team`,
     return { status: "sent" };
   } catch (err) {
     console.error("Email error:", err);
-    return 
-      { error: "Failed to send email" }
+    return;
+    {
+      error: "Failed to send email";
+    }
   }
 }

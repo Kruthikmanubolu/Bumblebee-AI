@@ -10,7 +10,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/shared/shadcn/card";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/shared/shadcn/radio-group";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/components/ui/shared/shadcn/radio-group";
 import { Label } from "@/components/ui/shared/shadcn/label";
 import { generateQuiz, saveQuizResult } from "@/actions/interview";
 import QuizResult from "./quiz-result";

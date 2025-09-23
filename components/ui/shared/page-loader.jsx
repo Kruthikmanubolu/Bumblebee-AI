@@ -21,11 +21,7 @@ export default function PageLoader() {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white/80 z-[9999]">
-      <Lottie 
-        animationData={beeAnimation} 
-        loop={true} 
-        className="w-64 h-64" 
-      />
+      <Lottie animationData={beeAnimation} loop={true} className="w-64 h-64" />
     </div>
   );
 }

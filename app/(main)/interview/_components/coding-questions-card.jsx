@@ -3,7 +3,13 @@
 import Editor from "@monaco-editor/react";
 import { Button } from "@/components/ui/shared/shadcn/button";
 import { useCodingQuestion } from "@/app/hooks/useCodingQuestion";
-import { Card, CardHeader, CardContent, CardTitle, CardFooter } from "@/components/ui/shared/shadcn/card";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+  CardFooter,
+} from "@/components/ui/shared/shadcn/card";
 
 export default function CodingQuestionCard() {
   const {
@@ -22,8 +28,8 @@ export default function CodingQuestionCard() {
 
   return (
     <div className="space-y-6">
-      {
-        !question && <Card className="mx-2">
+      {!question && (
+        <Card className="mx-2">
           <CardHeader>
             <CardTitle>Want to solve some coding questions?</CardTitle>
           </CardHeader>
@@ -39,7 +45,7 @@ export default function CodingQuestionCard() {
             </Button>
           </CardFooter>
         </Card>
-      }
+      )}
 
       {question && (
         <div className="bg-muted p-4 rounded space-y-2">
@@ -81,13 +87,10 @@ export default function CodingQuestionCard() {
               {submitting ? "Running..." : "Submit Code"}
             </Button>
 
-            {results.length > 0 && results.every(r => r.passed) && (
-              <Button onClick={newFetchQuestion}>
-                Next Question
-              </Button>
+            {results.length > 0 && results.every((r) => r.passed) && (
+              <Button onClick={newFetchQuestion}>Next Question</Button>
             )}
           </div>
-
 
           {results.length > 0 && (
             <div className="mt-4 space-y-2">
@@ -95,8 +98,9 @@ export default function CodingQuestionCard() {
               {results.map((r, i) => (
                 <div
                   key={i}
-                  className={`p-2 rounded ${r.passed ? "bg-green-100" : "bg-red-100"
-                    }`}
+                  className={`p-2 rounded ${
+                    r.passed ? "bg-green-100" : "bg-red-100"
+                  }`}
                 >
                   <p>
                     <strong>Input:</strong> {r.input}
@@ -109,7 +113,9 @@ export default function CodingQuestionCard() {
                   </p>
                   <p>
                     <strong>Status:</strong>{" "}
-                    <span className={r.passed ? "text-green-600" : "text-red-600"}>
+                    <span
+                      className={r.passed ? "text-green-600" : "text-red-600"}
+                    >
                       {r.passed ? "✅ Passed" : "❌ Failed"}
                     </span>
                   </p>

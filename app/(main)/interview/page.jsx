@@ -1,4 +1,3 @@
-
 import { getAssessments } from "@/actions/interview";
 import QuizList from "./_components/quiz-list";
 import PerformanceChart from "./_components/performance-chart";

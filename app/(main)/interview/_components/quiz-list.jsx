@@ -32,16 +32,22 @@ export default function QuizList({ assessments }) {
               <CardTitle className="gradient-title text-3xl md:text-4xl">
                 Recent Quizzes
               </CardTitle>
-              <CardDescription className='mt-2 md:mt-0'>
+              <CardDescription className="mt-2 md:mt-0">
                 Review your past quiz performance
               </CardDescription>
             </div>
             <div>
-              <Button onClick={() => router.push("/interview/quiz")} className='mt-2 mr-2 md:mt-0'>
+              <Button
+                onClick={() => router.push("/interview/quiz")}
+                className="mt-2 mr-2 md:mt-0"
+              >
                 Start New Quiz
               </Button>
 
-              <Button onClick={() => router.push("/interview/coding")} className='mt-2 md:mt-0'>
+              <Button
+                onClick={() => router.push("/interview/coding")}
+                className="mt-2 md:mt-0"
+              >
                 Start Coding
               </Button>
             </div>
@@ -64,7 +70,7 @@ export default function QuizList({ assessments }) {
                     <div>
                       {format(
                         new Date(assessment.createdAt),
-                        "MMMM dd, yyyy HH:mm"
+                        "MMMM dd, yyyy HH:mm",
                       )}
                     </div>
                   </CardDescription>

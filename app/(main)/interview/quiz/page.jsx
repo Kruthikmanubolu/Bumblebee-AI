@@ -31,7 +31,8 @@ export default async function MockInterviewPage() {
       <div className="p-8 rounded-2xl shadow-xl">
         <h1 className="text-5xl font-extrabold">Quiz Practice</h1>
         <p className="mt-2 text-lg opacity-90">
-          Sharpen your skills with AI-powered quiz practice tailored to your industry.
+          Sharpen your skills with AI-powered quiz practice tailored to your
+          industry.
         </p>
       </div>
 

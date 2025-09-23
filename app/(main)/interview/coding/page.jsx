@@ -31,27 +31,28 @@ export default async function MockInterviewPage() {
       <div className="p-8 rounded-2xl shadow-xl">
         <h1 className="text-5xl font-extrabold">Coding Practice</h1>
         <p className="mt-2 text-lg opacity-90">
-          Sharpen your skills with AI-powered coding practice tailored to your industry.
+          Sharpen your skills with AI-powered coding practice tailored to your
+          industry.
         </p>
       </div>
 
-        {/* Coding Question (if tech) */}
-        {user?.industry && user.industry.toLowerCase().startsWith("tech") ? (
-          <div className="p-6 rounded-2xl shadow-md bg-white/90 backdrop-blur">
-            <h2 className="text-xl font-semibold mb-4">Coding Challenge</h2>
-            <CodingQuestionCard question={sampleQuestion} />
-          </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center text-center p-6 border border-dashed rounded-xl bg-gray-50">
-            <p className="text-muted-foreground mb-3">
-              ⚠️ Coding questions are only available for the{" "}
-              <b>Technology</b> industry.
-            </p>
-            <Link href="/onboarding">
-              <Button variant="outline">Update Industry</Button>
-            </Link>
-          </div>
-        )}
-      </div>
+      {/* Coding Question (if tech) */}
+      {user?.industry && user.industry.toLowerCase().startsWith("tech") ? (
+        <div className="p-6 rounded-2xl shadow-md bg-white/90 backdrop-blur">
+          <h2 className="text-xl font-semibold mb-4">Coding Challenge</h2>
+          <CodingQuestionCard question={sampleQuestion} />
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center text-center p-6 border border-dashed rounded-xl bg-gray-50">
+          <p className="text-muted-foreground mb-3">
+            ⚠️ Coding questions are only available for the <b>Technology</b>{" "}
+            industry.
+          </p>
+          <Link href="/onboarding">
+            <Button variant="outline">Update Industry</Button>
+          </Link>
+        </div>
+      )}
+    </div>
   );
 }

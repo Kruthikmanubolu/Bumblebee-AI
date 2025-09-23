@@ -7,6 +7,9 @@ export async function GET() {
     return NextResponse.json(insights);
   } catch (error) {
     console.error("Error fetching insights:", error);
-    return NextResponse.json({ error: "Failed to fetch insights" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch insights" },
+      { status: 500 },
+    );
   }
 }

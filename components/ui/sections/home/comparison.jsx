@@ -74,7 +74,8 @@ const Comparison = () => {
             AI vs Traditional Career Services
           </h2>
           <p className="text-muted-foreground text-lg mt-3 px-0">
-            Success rate trends using AI-based vs Traditional way of job hunt (2015 – 2025)
+            Success rate trends using AI-based vs Traditional way of job hunt
+            (2015 – 2025)
           </p>
         </motion.div>
 
@@ -88,9 +89,10 @@ const Comparison = () => {
           <div className="w-full h-[300px]">
             {loading ? (
               <>
-              <div className="flex justify-center items-center h-full text-muted-foreground gap-2">
-                <Loader2 className="h-6 w-6 animate-spin text-blue-500" /> Loading chart...
-              </div>
+                <div className="flex justify-center items-center h-full text-muted-foreground gap-2">
+                  <Loader2 className="h-6 w-6 animate-spin text-blue-500" />{" "}
+                  Loading chart...
+                </div>
               </>
             ) : (
               <ResponsiveContainer width="100%" height="100%">
@@ -99,7 +101,11 @@ const Comparison = () => {
                     {/* Gradient for AI-Assisted */}
                     <linearGradient id="aiGradient" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="#2563eb" stopOpacity={0.9} />
-                      <stop offset="100%" stopColor="#2563eb" stopOpacity={0.2} />
+                      <stop
+                        offset="100%"
+                        stopColor="#2563eb"
+                        stopOpacity={0.2}
+                      />
                     </linearGradient>
                     {/* Gradient for Traditional */}
                     <linearGradient
@@ -110,7 +116,11 @@ const Comparison = () => {
                       y2="1"
                     >
                       <stop offset="0%" stopColor="#ef4444" stopOpacity={0.9} />
-                      <stop offset="100%" stopColor="#ef4444" stopOpacity={0.2} />
+                      <stop
+                        offset="100%"
+                        stopColor="#ef4444"
+                        stopOpacity={0.2}
+                      />
                     </linearGradient>
                   </defs>
 
