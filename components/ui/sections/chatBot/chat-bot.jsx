@@ -13,7 +13,7 @@ export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
-      text: `Hi! How can we help you? Example :- Book a meeting, Contact an Expert or a small question related to your career`,
+      text: `Hi! I'm BuzzBot. I can help you book meetings, get career tips, or answer quick questions.`,
       sender: "bot",
     },
   ]);
@@ -186,7 +186,7 @@ export default function ChatBot() {
             {/* Header */}
             <div className="flex items-center justify-between bg-gradient-to-r from-blue-500 to-indigo-500 text-white p-4">
               <div className="flex flex-col">
-                <h2 className="text-lg font-semibold">Ask BumbleBee</h2>
+                <h2 className="text-lg font-semibold">BuzzBot</h2>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
@@ -205,10 +205,10 @@ export default function ChatBot() {
                       <TypingDots />
                     ) : msg.type === "slots" ? (
                       <>
-                        <div className="bg-blue-100 text-blue-800 self-start px-3 py-2 rounded-lg text-sm max-w-[70%] mb-2">
+                        <div className="bg-blue-100 text-blue-800 self-start px-3 py-2 rounded-lg text-sm max-w-[100%] mb-2">
                           {msg.text}
                         </div>
-                        <div className="flex flex-wrap gap-2 self-start">
+                        <div className="flex flex-wrap gap-2">
                           {msg.slots.map((slot, i) => (
                             <button
                               key={i}

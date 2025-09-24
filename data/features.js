@@ -29,4 +29,10 @@ export const features = [
     description: "Generate ATS-optimized resumes with AI assistance.",
     link: "/resume",
   },
+  {
+    icon: <ScrollText className="w-10 h-10 mb-4 text-primary" />,
+    title: "Cover Letter Creation",
+    description: "Generate ATS-optimized cover-letter with AI assistance.",
+    link: "/ai-cover-letter",
+  },
 ];
