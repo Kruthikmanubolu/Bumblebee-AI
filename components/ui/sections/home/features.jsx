@@ -40,9 +40,7 @@ const FeaturesSection = () => {
     <section className="w-full py-16 pb-24">
       <div className="container mx-auto px-4 md:px-6 text-center">
         {/* Heading */}
-        <h2 className="text-4xl font-bond mb-4">
-          Powerful Features
-        </h2>
+        <h2 className="text-4xl font-bond mb-4">Powerful Features</h2>
 
         {/* Subheading */}
         <div className="flex justify-center items-center my-6 text-center">
@@ -56,16 +54,13 @@ const FeaturesSection = () => {
           </h3>
         </div>
 
-
         {/* Features grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {features.map((feature, i) => (
             <Link key={i} href={feature.link}>
               <Card className="group border-2 hover:border-primary/70 h-full flex flex-col shadow-md hover:shadow-xl rounded-2xl">
                 <CardContent className="pt-8 text-center flex flex-col items-center">
-                  <div className="mb-5">
-                    {feature.icon}
-                  </div>
+                  <div className="mb-5">{feature.icon}</div>
                   <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {feature.description}
