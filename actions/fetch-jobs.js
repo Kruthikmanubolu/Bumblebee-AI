@@ -1,11 +1,17 @@
 // actions/fetch-jobs.js
 "use server";
 
-export async function fetchJobs({ query, location, minSalary, company, timeRange }) {
+export async function fetchJobs({
+  query,
+  location,
+  minSalary,
+  company,
+  timeRange,
+}) {
   const APP_ID = process.env.ADZUNA_APP_ID;
   const APP_KEY = process.env.ADZUNA_APP_KEY;
 
-  const url = new URL(`https://api.adzuna.com/v1/api/jobs/us/search/1`);
+  const url = new URL("https://api.adzuna.com/v1/api/jobs/us/search/1");
   url.searchParams.set("app_id", APP_ID);
   url.searchParams.set("app_key", APP_KEY);
   url.searchParams.set("results_per_page", "20");
@@ -17,7 +23,7 @@ export async function fetchJobs({ query, location, minSalary, company, timeRange
 
   // Map dropdown values to Adzuna's max_days_old
   if (timeRange && timeRange !== "all") {
-    const daysMap = { "past_week": 7, "past_24h": 1 };
+    const daysMap = { past_week: 7, past_24h: 1 };
     if (daysMap[timeRange]) {
       url.searchParams.set("max_days_old", daysMap[timeRange]);
     }
@@ -30,9 +36,9 @@ export async function fetchJobs({ query, location, minSalary, company, timeRange
   // Filter for past hour on client side
   if (timeRange === "past_hour") {
     const now = Date.now();
-    return (data.results || []).filter(job => {
+    return (data.results || []).filter((job) => {
       const posted = new Date(job.created).getTime();
-      return (now - posted) <= 60 * 60 * 1000;
+      return now - posted <= 60 * 60 * 1000;
     });
   }
 

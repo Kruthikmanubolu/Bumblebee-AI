@@ -20,8 +20,8 @@ export async function generateCoverLetter(data) {
 
   const prompt = `
     Write a professional cover letter for a ${data.jobTitle} position at ${
-    data.companyName
-  }.
+      data.companyName
+    }.
     
     About the candidate:
     - Industry: ${user.industry}
@@ -66,9 +66,8 @@ export async function generateCoverLetter(data) {
   }
 }
 
-
 export async function getCoverLetters() {
-    const { userId } = await auth();
+  const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 
   const user = await db.user.findUnique({
@@ -79,17 +78,17 @@ export async function getCoverLetters() {
 
   return await db.coverLetter.findMany({
     where: {
-        userId: user.id
+      userId: user.id,
     },
 
     orderBy: {
-        createdAt: 'desc'
-    }
-  })
+      createdAt: "desc",
+    },
+  });
 }
 
 export async function getCoverLetter(id) {
-    const { userId } = await auth();
+  const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 
   const user = await db.user.findUnique({
@@ -100,14 +99,14 @@ export async function getCoverLetter(id) {
 
   return await db.coverLetter.findUnique({
     where: {
-        id,
-        userId: user.id
-    }
-  })
+      id,
+      userId: user.id,
+    },
+  });
 }
 
 export async function deleteCoverLetter(id) {
-    const { userId } = await auth();
+  const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 
   const user = await db.user.findUnique({
@@ -118,8 +117,8 @@ export async function deleteCoverLetter(id) {
 
   return await db.coverLetter.delete({
     where: {
-        id,
-        userId: user.id
-    }
-  })
+      id,
+      userId: user.id,
+    },
+  });
 }

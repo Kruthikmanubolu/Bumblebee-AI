@@ -73,7 +73,6 @@ export async function updateUser(data) {
   }
 }
 
-
 export async function getUserOnBoardingStatus() {
   const { userId } = await auth();
   if (!userId) throw new Error("UnAuthorized");
@@ -123,7 +122,6 @@ export async function getUser() {
     throw new Error("Failed to fetch user data");
   }
 }
-
 
 export const getUserProfile = async () => {
   const { userId: clerkUserId } = await auth();

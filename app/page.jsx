@@ -12,7 +12,7 @@ import Comparison from "@/components/ui/sections/home/comparison";
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      <div className="grid-background"/>
+      <div className="grid-background" />
       <HeroSection />
       <FeaturesSection />
       <WhyBumbleBeeSection />

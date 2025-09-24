@@ -17,17 +17,17 @@ BumbleBee AI is a modern, AI-powered web application designed to help job seeker
 
 ## 🧰 Tech Stack
 
-| Technology         | Purpose                                                |
-|--------------------|--------------------------------------------------------|
-| **Next.js**        | React-based fullstack framework                        |
-| **JavaScript**     | Language used throughout the app                       |
-| **Prisma ORM**     | Type-safe database access layer                        |
-| **Neon DB**        | Serverless PostgreSQL database                         |
-| **PostgreSQL**     | Primary relational database                            |
-| **Gemini AI API**  | Google’s LLM for resume, cover letter, and Q&A tasks   |
-| **Tailwind CSS**   | Utility-first styling framework                        |
-| **Clerk**          | Authentication and user management                     |
-| **Inngest**        | Event-driven background jobs and scheduling            |
+| Technology        | Purpose                                              |
+| ----------------- | ---------------------------------------------------- |
+| **Next.js**       | React-based fullstack framework                      |
+| **JavaScript**    | Language used throughout the app                     |
+| **Prisma ORM**    | Type-safe database access layer                      |
+| **Neon DB**       | Serverless PostgreSQL database                       |
+| **PostgreSQL**    | Primary relational database                          |
+| **Gemini AI API** | Google’s LLM for resume, cover letter, and Q&A tasks |
+| **Tailwind CSS**  | Utility-first styling framework                      |
+| **Clerk**         | Authentication and user management                   |
+| **Inngest**       | Event-driven background jobs and scheduling          |
 
 ---
 
@@ -40,10 +40,9 @@ git clone https://github.com/yourusername/bumblebee-ai.git
 cd bumblebee-ai
 ```
 
-
 ### 2. Install the dependencies
 
-``` bash 
+```bash
 npm install
 ```
 
@@ -81,8 +80,8 @@ BumbleBee AI uses Gemini AI API to:
 
 Gemini API is provided by Google. Learn more here.
 
-
 📣 Acknowledgements
+
 1. Gemini API
 
 2. Next.js

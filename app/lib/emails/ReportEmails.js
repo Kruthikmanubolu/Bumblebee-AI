@@ -34,18 +34,23 @@ export default function ReportEmail({ insights }) {
           </Section>
 
           <Section>
-            <Text style={{ fontSize: "18px", fontWeight: "bold", marginTop: 20 }}>
+            <Text
+              style={{ fontSize: "18px", fontWeight: "bold", marginTop: 20 }}
+            >
               Salary Ranges:
             </Text>
             {insights.salaryRanges.map((range, i) => (
               <Text key={i}>
-                {range.role}: ${range.min} - ${range.max} (median: ${range.median})
+                {range.role}: ${range.min} - ${range.max} (median: $
+                {range.median})
               </Text>
             ))}
           </Section>
 
           <Section>
-            <Text style={{ fontSize: "18px", fontWeight: "bold", marginTop: 20 }}>
+            <Text
+              style={{ fontSize: "18px", fontWeight: "bold", marginTop: 20 }}
+            >
               Key Trends:
             </Text>
             <ul>
@@ -56,7 +61,9 @@ export default function ReportEmail({ insights }) {
           </Section>
 
           <Section>
-            <Text style={{ fontSize: "18px", fontWeight: "bold", marginTop: 20 }}>
+            <Text
+              style={{ fontSize: "18px", fontWeight: "bold", marginTop: 20 }}
+            >
               Recommended Skills:
             </Text>
             <ul>
@@ -66,7 +73,11 @@ export default function ReportEmail({ insights }) {
             </ul>
           </Section>
 
-          <Text style={{ marginTop: 30 }}>Thanks,<br />BumbleBee Team</Text>
+          <Text style={{ marginTop: 30 }}>
+            Thanks,
+            <br />
+            BumbleBee Team
+          </Text>
         </Container>
       </Body>
     </Html>

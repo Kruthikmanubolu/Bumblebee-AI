@@ -2,7 +2,6 @@
 @import "tw-animate-css";
 @import "keen-slider/keen-slider.min.css";
 
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -123,8 +122,6 @@
   }
 }
 
-
-
 /* .grid-background{
   position: fixed;
   top: 0;
@@ -162,20 +159,19 @@
   }
 } */
 
-.hero-image-wrapper{
+.hero-image-wrapper {
   perspective: 1000px;
 }
 
-.hero-image{
+.hero-image {
   transform: rotateX(15deg) scale(1);
   transition: transform 0.5s ease-out;
   will-change: transform;
 }
 
-.hero-image.scrolled{
+.hero-image.scrolled {
   transform: rotateX(0deg) scale(1) translateY(40px);
 }
-
 
 /* globals.css */
 body {
@@ -191,7 +187,8 @@ html.dark body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) translateX(0);
   }
   50% {
@@ -202,6 +199,3 @@ html.dark body {
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
-
-
-

@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 const config = {
-  darkMode: 'class', // 👈 ADD THIS LINE
+  darkMode: "class", // 👈 ADD THIS LINE
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx}',
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
     screens: {
-      x3s: { max: '375px' },
-      xxs: { max: '616px' },
-      xs: { max: '774px' },
-      sm: { max: '874.99px' },
-      md: { min: '875px', max: '1439.98px' },
-      lg: { min: '1439.99px' },
+      x3s: { max: "375px" },
+      xxs: { max: "616px" },
+      xs: { max: "774px" },
+      sm: { max: "874.99px" },
+      md: { min: "875px", max: "1439.98px" },
+      lg: { min: "1439.99px" },
     },
   },
   plugins: [],

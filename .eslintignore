@@ -1,0 +1,25 @@
+# Node modules and build output
+node_modules/
+dist/
+build/
+
+# Husky & git hooks
+.husky/
+
+# Ignore config files (optional)
+*.config.js
+*.config.cjs
+*.test.js
+*.spec.js
+
+# Logs
+*.log
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# OneDrive system/temp files
+**/OneDrive*/

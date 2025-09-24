@@ -1,0 +1,2 @@
+echo "✨ Running Prettier before push..."
+npm run lint && npx prettier --check .

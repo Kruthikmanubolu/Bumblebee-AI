@@ -48,7 +48,6 @@ IMPORTANT RULES:
 - jobOpenings must include each and every country which have jobs in the ${industry}, with realistic coordinates and opening counts.
 `;
 
-
   const result = await model.generateContent(prompt);
   const response = result.response;
   const text = response.text();

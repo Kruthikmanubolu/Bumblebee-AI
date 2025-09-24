@@ -15,7 +15,7 @@ export const onboardingSchema = z.object({
       z
         .number()
         .min(0, "Experience must be at least 0 years")
-        .max(50, "Experience cannot exceed 50 years")
+        .max(50, "Experience cannot exceed 50 years"),
     ),
   skills: z.string().transform((val) =>
     val
@@ -23,7 +23,7 @@ export const onboardingSchema = z.object({
           .split(",")
           .map((skill, index) => skill.trim())
           .filter(Boolean)
-      : undefined
+      : undefined,
   ),
 });
 
@@ -53,7 +53,7 @@ export const entrySchema = z
     {
       message: "End date is required unless this is your current position",
       path: ["endDate"],
-    }
+    },
   );
 
 export const resumeSchema = z.object({

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client";
 import { useState, useEffect } from "react";
 import { fetchJobs } from "@/actions/fetch-jobs";
@@ -34,7 +36,7 @@ const JobFeed = () => {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     handleFetch();
   }, []);
 
@@ -69,7 +71,9 @@ const JobFeed = () => {
         />
         <select
           value={filters.timeRange}
-          onChange={(e) => setFilters({ ...filters, timeRange: e.target.value })}
+          onChange={(e) =>
+            setFilters({ ...filters, timeRange: e.target.value })
+          }
           className="border rounded-md p-2"
         >
           <option value="all">All Time</option>

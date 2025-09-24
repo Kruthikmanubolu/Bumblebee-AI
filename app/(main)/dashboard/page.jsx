@@ -3,8 +3,8 @@
 // import { getUserOnBoardingStatus } from '@/actions/user';
 
 // const IndustryInsights = async() => {
-//   const {isOnboarded} = await getUserOnBoardingStatus() 
-  
+//   const {isOnboarded} = await getUserOnBoardingStatus()
+
 //     if(!isOnboarded){
 //       redirect('/dashboard');
 //     }
@@ -16,7 +16,6 @@
 // }
 
 // export default IndustryInsights
-
 
 import { getIndustryInsights } from "@/actions/dashboard";
 import DashboardView from "./_components/dashboard-view";

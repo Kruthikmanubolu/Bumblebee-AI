@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import {
   Card,
   CardHeader,
@@ -29,7 +25,7 @@ const JobOpeningsMap = ({ jobOpenings }) => {
           const countryJob = jobOpenings.find(
             (job) =>
               job.country.toLowerCase() ===
-              feature.properties.name.toLowerCase()
+              feature.properties.name.toLowerCase(),
           );
           return {
             ...feature,
@@ -127,11 +123,11 @@ const JobOpeningsMap = ({ jobOpenings }) => {
                           setTooltip((prev) =>
                             prev
                               ? {
-                                ...prev,
-                                x: clientX + 10,
-                                y: clientY + 10,
-                              }
-                              : null
+                                  ...prev,
+                                  x: clientX + 10,
+                                  y: clientY + 10,
+                                }
+                              : null,
                           );
                         }}
                         onMouseLeave={() => {
@@ -160,11 +156,14 @@ const JobOpeningsMap = ({ jobOpenings }) => {
                   .map((geo) => (
                     <tr
                       key={geo.id}
-                      className={`border-b hover:bg-gray-50 ${hoveredCountry?.id === geo.id ? "bg-yellow-100" : ""
-                        }`}
+                      className={`border-b hover:bg-gray-50 ${
+                        hoveredCountry?.id === geo.id ? "bg-yellow-100" : ""
+                      }`}
                     >
                       <td className="p-2">{geo.properties.name}</td>
-                      <td className="p-2 text-right">{geo.properties.openings}</td>
+                      <td className="p-2 text-right">
+                        {geo.properties.openings}
+                      </td>
                     </tr>
                   ))}
               </tbody>

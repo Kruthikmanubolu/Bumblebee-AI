@@ -2,10 +2,7 @@
 
 import React from "react";
 import { format } from "date-fns";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/shared/shadcn/card";
+import { Card, CardContent } from "@/components/ui/shared/shadcn/card";
 import { Badge } from "@/components/ui/shared/shadcn/badge";
 import { useRouter } from "next/navigation";
 import CareerPathVisualizer from "@/components/ui/sections/industryInsights/careerpath/career-path-visualizer";
@@ -17,9 +14,8 @@ import SalaryGraph from "@/components/ui/sections/industryInsights/salary-graph"
 import TopCompanies from "@/components/ui/sections/industryInsights/top-companies";
 import KeyTrendsRecommendations from "@/components/ui/sections/industryInsights/key-trends-recommendations";
 const DashboardView = ({ insights }) => {
-  const router = useRouter()
+  const router = useRouter();
   const lastUpdatedDate = format(new Date(insights.lastUpdated), "dd/MM/yyyy");
-
 
   return (
     <div className="space-y-6">

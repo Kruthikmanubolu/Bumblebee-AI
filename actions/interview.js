@@ -25,8 +25,8 @@ export async function generateQuiz() {
     Generate 10 technical interview questions for a ${
       user.industry
     } professional${
-    user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""
-  }.
+      user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""
+    }.
     
     Each question should be multiple choice with 4 options.
     
@@ -84,7 +84,7 @@ export async function saveQuizResult(questions, answers, score) {
     const wrongQuestionsText = wrongAnswers
       .map(
         (q, key) =>
-          `Question: "${q.question}"\nCorrect Answer: "${q.answer}"\nUser Answer: "${q.userAnswer}"`
+          `Question: "${q.question}"\nCorrect Answer: "${q.answer}"\nUser Answer: "${q.userAnswer}"`,
       )
       .join("\n\n");
 
@@ -183,7 +183,7 @@ export async function evaluateCodeWithTestCases(code, language, testCases) {
           language_id: languageId,
           stdin: testCase.input,
         }),
-      }
+      },
     );
 
     const { token } = await submissionRes.json();
@@ -199,7 +199,7 @@ export async function evaluateCodeWithTestCases(code, language, testCases) {
             "X-RapidAPI-Key": process.env.RAPIDAPI_KEY,
             "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
           },
-        }
+        },
       );
       result = await res.json();
       if (result.status?.id > 2) break;
@@ -218,7 +218,6 @@ export async function evaluateCodeWithTestCases(code, language, testCases) {
 
   return results;
 }
-
 
 export async function generateCodingQuestion() {
   const { userId } = await auth();
@@ -251,7 +250,10 @@ Return exactly this format:
 `;
 
   const result = await model.generateContent(prompt);
-  const text = result.response.text().replace(/```json|```/g, "").trim();
+  const text = result.response
+    .text()
+    .replace(/```json|```/g, "")
+    .trim();
   return JSON.parse(text);
 }
 
@@ -286,7 +288,9 @@ Return exactly this format:
 `;
 
   const result = await model.generateContent(prompt);
-  const text = result.response.text().replace(/```json|```/g, "").trim();
+  const text = result.response
+    .text()
+    .replace(/```json|```/g, "")
+    .trim();
   return JSON.parse(text);
 }
-
