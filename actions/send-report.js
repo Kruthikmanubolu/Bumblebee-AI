@@ -1,3 +1,5 @@
+/*esling-disable quotes */
+
 "use server";
 import nodemailer from "nodemailer";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
