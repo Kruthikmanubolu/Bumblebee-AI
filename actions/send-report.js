@@ -1,4 +1,4 @@
-/*esling-disable quotes */
+/*eslint-disable quotes */
 
 "use server";
 import nodemailer from "nodemailer";
