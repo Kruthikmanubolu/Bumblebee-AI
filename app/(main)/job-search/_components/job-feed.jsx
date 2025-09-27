@@ -6,10 +6,23 @@ import { fetchJobs } from "@/actions/fetch-jobs";
 import { Button } from "@/components/ui/shared/shadcn/button";
 import { Input } from "@/components/ui/shared/shadcn/input";
 import { Card, CardContent } from "@/components/ui/shared/shadcn/card";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/shared/shadcn/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/shared/shadcn/sheet";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-import { Search, Filter, Briefcase, MapPin, Building2, Clock } from "lucide-react";
+import {
+  Search,
+  Filter,
+  Briefcase,
+  MapPin,
+  Building2,
+  Clock,
+} from "lucide-react";
 
 const JobFeed = () => {
   const [jobs, setJobs] = useState([]);
@@ -119,7 +132,10 @@ const JobFeed = () => {
                   Filters
                 </Button>
               </SheetTrigger>
-              <SheetContent side="bottom" className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+              <SheetContent
+                side="bottom"
+                className="p-6 space-y-4 max-h-[80vh] overflow-y-auto"
+              >
                 <SheetHeader>
                   <SheetTitle>Filter Jobs</SheetTitle>
                 </SheetHeader>
