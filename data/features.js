@@ -35,4 +35,11 @@ export const features = [
     description: "Generate ATS-optimized cover-letter with AI assistance.",
     link: "/ai-cover-letter",
   },
+
+  {
+    icon: <Briefcase className="w-10 h-10 mb-4 text-primary" />,
+    title: "Live Job Feed",
+    description: "Generate live jobs with mutliple filters",
+    link: "/job-search",
+  },
 ];
