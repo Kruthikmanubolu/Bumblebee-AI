@@ -12,6 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/shared/shadcn/button";
 import {
+  Briefcase,
   ChevronDown,
   FileText,
   GraduationCap,
@@ -78,6 +79,13 @@ const Header = () => {
                   <Link href="/interview" className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4" />
                     Interview Prep
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem>
+                  <Link href="/job-search" className="flex items-center gap-2">
+                    <Briefcase className="h-4 w-4" />
+                    Job Search
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>

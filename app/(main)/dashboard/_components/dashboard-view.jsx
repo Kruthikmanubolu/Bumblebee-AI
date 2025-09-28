@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/shared/shadcn/badge";
 import { useRouter } from "next/navigation";
 import CareerPathVisualizer from "@/components/ui/sections/industryInsights/careerpath/career-path-visualizer";
 import JobOpeningsHeatmap from "@/components/ui/sections/industryInsights/job-openings";
-import JobFeed from "@/components/ui/sections/industryInsights/job-feed";
 import SendReport from "@/components/ui/sections/industryInsights/send-report";
 import MarketInsights from "@/components/ui/sections/industryInsights/market-insights";
 import SalaryGraph from "@/components/ui/sections/industryInsights/salary-graph";
@@ -46,12 +45,12 @@ const DashboardView = ({ insights }) => {
         <JobOpeningsHeatmap jobOpenings={insights.jobOpenings} />
       )}
       {/* Live Job Feed */}
-      <Card className="py-10">
+      {/* <Card className="py-10">
         <CardContent>
           <h2 className="text-xl font-bold mb-4">Live Job Feed</h2>
           <JobFeed />
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   );
 };
