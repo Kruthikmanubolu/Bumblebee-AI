@@ -1,84 +1,52 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/shared/shadcn/button";
 import Lottie from "lottie-react";
+import animationData from "@/public/ai-assistant.json";
 
 const HeroSection = () => {
-  // const imageRef = useRef(null)
-  // const animationRef = useRef(null)
-  // const [loading, setLoading] = useState(false)
-
-  const handleClick = async () => {
-    setLoading(true);
-    await new Promise((r) => setTimeout(r, 2000)); // Simulate delay
-    setLoading(false);
-  };
-
-  const [animationData, setAnimationData] = useState(null);
-
-  useEffect(() => {
-    fetch("/ai-assistant.json")
-      .then((res) => res.json())
-      .then(setAnimationData);
-  }, []);
-
-  if (!animationData) return null; // avoid rendering before data is loaded
-
-  // useEffect(() => {
-  //     const imageElement = imageRef.current
-  //     const handleScroll = () => {
-  //         const scrollPosition = window.scrollY;
-  //         const scrollThreshold = 100;
-
-  //         if (scrollPosition > scrollThreshold) {
-  //             imageElement.classList.add("scrolled")
-  //         }
-  //         else {
-  //             imageElement.classList.remove('scrolled')
-  //         }
-  //     }
-
-  //     window.addEventListener('scroll', handleScroll)
-
-  //     return () => window.removeEventListener('scroll', handleScroll)
-
-  // }, [])
   return (
-    <section className="w-full pt-24 md:pt-36 pb-10">
-      <div className="space-y-6 text-center">
-        <div className="space-y-6 mx-auto">
-          <h1 className="text-4xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title px-2 md:px-0">
-            Success Starts Here with
-            <br />
-            Your AI Companion
+    <section className="w-full pt-24 pb-10">
+      {/* GRID: TEXT + VIDEO */}
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-4 md:px-6">
+        {/* LEFT SIDE - TEXT */}
+        <div className="space-y-6 text-center lg:text-left">
+          <h1 className="text-xl font-bold md:text-3xl xl:text-5xl gradient-title">
+            Success Starts Here with Your AI Companion
           </h1>
-          <p className="mx-auto max-w-[600px] text-muted-foreground md:text-lg px-2 md:px-0">
+          <p className="lg:max-w-[600px] text-muted-foreground text-sm mx-auto lg:mx-0">
             Your Intelligent Career Companion: AI-Powered Coaching, Customized
             Guidance, and Tools to Help You Land the Job You Deserve
           </p>
+
+          <div className="flex justify-center lg:justify-start">
+            <Link href="/dashboard">
+              <Button size="lg" className="px-8 hover:cursor-pointer">
+                Get Started
+              </Button>
+            </Link>
+          </div>
         </div>
 
-        <div className="flex justify-center space-x-4">
-          <Link href="/dashboard">
-            <Button
-              size="lg"
-              className="px-8 hover:cursor-pointer"
-              onClick={handleClick}
-            >
-              Get Started
-            </Button>
-          </Link>
-        </div>
-
-        <div className="hero-animation-wrapper">
-          <Lottie
-            animationData={animationData}
-            loop
-            autoplay
-            className="md:mx-auto md:w-[700px] lg:w-[1200px]"
+        {/* RIGHT SIDE - YOUTUBE EMBED */}
+        <div className="flex justify-center lg:justify-end">
+          <iframe
+            src="https://www.youtube.com/embed/Rc8UTB-YWB4?autoplay=0&mute=1&loop=1&playlist=Rc8UTB-YWB4"
+            className="rounded-2xl shadow-lg w-full max-w-[1000px] aspect-video"
+            allow="autoplay; encrypted-media"
           />
         </div>
+      </div>
+
+      {/* BOTTOM - LOTTIE */}
+      <div className="hero-animation-wrapper mt-12 flex justify-center">
+        <Lottie
+          animationData={animationData}
+          loop
+          autoplay
+          className="w-full max-w-[700px] lg:max-w-[900px]"
+        />
       </div>
     </section>
   );
