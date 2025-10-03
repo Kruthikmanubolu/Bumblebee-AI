@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section className="relative w-full pt-20 pb-16 overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6">
       {/* FLOATING BLOBS */}
       <motion.div
         animate={{ y: [0, 20, 0] }}
@@ -102,6 +103,7 @@ const HeroSection = () => {
           className="w-full max-w-[700px] lg:max-w-[900px] drop-shadow-[0_0_20px_rgba(139,92,246,0.4)]"
         />
       </motion.div>
+      </div>
     </section>
   );
 };
