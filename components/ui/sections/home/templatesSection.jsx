@@ -1,75 +1,114 @@
+"use client";
 import React from "react";
 import { Card, CardContent } from "../../shared/shadcn/card";
 import Image from "next/image";
 import { templates } from "@/data/templates";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6 } },
+};
+
 const TemplatesSection = () => {
   return (
     <section className="w-full py-20 bg-gradient-to-br from-blue-50 to-purple-50">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-4xl font-bond text-center mb-4">
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bond text-center mb-4"
+        >
           Resume & Cover Letter Templates
-        </h2>
-        <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto"
+        >
           Compared before and after AI-enhanced career documents and see the
           difference.
-        </p>
+        </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* Template Cards */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+        >
           {templates.map((template, index) => (
-            <Card
+            <motion.div
               key={index}
-              className="shadow-lg hover:shadow-xl transition-all duration-300 bg-white/90 backdrop-blur-lg rounded-2xl overflow-hidden"
+              variants={cardVariants}
+              className="transition-transform"
             >
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">{template.type}</h3>
-                <p className="text-muted-foreground mb-6">
-                  {template.description}
-                </p>
+              <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-white/90 backdrop-blur-lg rounded-2xl overflow-hidden">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{template.type}</h3>
+                  <p className="text-muted-foreground mb-6">
+                    {template.description}
+                  </p>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                  {["before", "after"].map((stage) => {
-                    const file = template[stage];
-                    return (
-                      <div
-                        className="relative rounded-lg overflow-hidden border bg-white shadow-sm"
-                        key={stage}
-                      >
-                        {/* Label */}
-                        <span
-                          className={`absolute top-2 left-2 px-2 py-1 text-xs font-semibold rounded z-10 ${
-                            stage === "before"
-                              ? "bg-gray-200 text-gray-800"
-                              : "bg-green-100 text-green-800"
-                          }`}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {["before", "after"].map((stage) => {
+                      const file = template[stage];
+                      return (
+                        <motion.div
+                          key={stage}
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{ duration: 0.6, delay: 0.1 }}
+                          className="relative rounded-lg overflow-hidden border bg-white shadow-sm"
                         >
-                          {stage === "before" ? "Before AI" : "After AI"}
-                        </span>
+                          {/* Label */}
+                          <span
+                            className={`absolute top-2 left-2 px-2 py-1 text-xs font-semibold rounded z-10 ${
+                              stage === "before"
+                                ? "bg-gray-200 text-gray-800"
+                                : "bg-green-100 text-green-800"
+                            }`}
+                          >
+                            {stage === "before" ? "Before AI" : "After AI"}
+                          </span>
 
-                        {/* Aspect Ratio Box */}
-                        <div className="relative w-full pt-[140%]">
-                          {/* This gives a tall aspect ratio similar to a resume page */}
-                          {file.type === "image" ? (
-                            <Image
-                              src={file.src}
-                              alt={`${template.type} ${stage}`}
-                              fill
-                              className="absolute inset-0"
-                            />
-                          ) : (
-                            <iframe
-                              src={file.src}
-                              className="absolute inset-0 w-full h-full border-none"
-                            />
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </CardContent>
-            </Card>
+                          {/* Aspect Ratio Box */}
+                          <div className="relative w-full pt-[140%]">
+                            {file.type === "image" ? (
+                              <Image
+                                src={file.src}
+                                alt={`${template.type} ${stage}`}
+                                fill
+                                className="absolute inset-0"
+                              />
+                            ) : (
+                              <iframe
+                                src={file.src}
+                                className="absolute inset-0 w-full h-full border-none"
+                              />
+                            )}
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

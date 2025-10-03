@@ -42,13 +42,11 @@ const Comparison = () => {
     const fetchComparison = async () => {
       try {
         const data = await generateJobSearchComparisonOverYears();
-
         const formatted = data.yearlyComparison.map((item) => ({
           year: item.year,
           aiAssisted: item.successRates.aiAssisted,
           traditional: item.successRates.traditional,
         }));
-
         setChartData(formatted);
       } catch (error) {
         console.error("Error fetching job search comparison:", error);
@@ -66,8 +64,9 @@ const Comparison = () => {
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bond">
@@ -82,18 +81,18 @@ const Comparison = () => {
         {/* Chart Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.02, y: -5 }}
           transition={{ duration: 0.7, delay: 0.2 }}
+          viewport={{ once: true }}
           className="bg-card rounded-2xl shadow-xl p-6"
         >
           <div className="w-full h-[300px]">
             {loading ? (
-              <>
-                <div className="flex justify-center items-center h-full text-muted-foreground gap-2">
-                  <Loader2 className="h-6 w-6 animate-spin text-blue-500" />{" "}
-                  Loading chart...
-                </div>
-              </>
+              <div className="flex justify-center items-center h-full text-muted-foreground gap-2">
+                <Loader2 className="h-6 w-6 animate-spin text-blue-500" />{" "}
+                Loading chart...
+              </div>
             ) : (
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData}>
@@ -146,6 +145,9 @@ const Comparison = () => {
                     dot={{ r: 4, fill: "#2563eb" }}
                     activeDot={{ r: 6, fill: "#1d4ed8" }}
                     name="AI-Assisted"
+                    strokeDasharray="1000"
+                    strokeDashoffset="1000"
+                    isAnimationActive={true}
                   />
                   <Line
                     type="monotone"
@@ -155,6 +157,9 @@ const Comparison = () => {
                     dot={{ r: 4, fill: "#ef4444" }}
                     activeDot={{ r: 6, fill: "#b91c1c" }}
                     name="Traditional"
+                    strokeDasharray="1000"
+                    strokeDashoffset="1000"
+                    isAnimationActive={true}
                   />
                 </LineChart>
               </ResponsiveContainer>

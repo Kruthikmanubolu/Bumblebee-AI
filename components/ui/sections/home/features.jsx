@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Card, CardContent } from "../../shared/shadcn/card";
 import { features } from "@/data/features";
+import { motion } from "framer-motion";
 
 const rotatingTexts = [
   "AI-powered guidance",
@@ -40,10 +41,24 @@ const FeaturesSection = () => {
     <section className="w-full py-16 pb-24">
       <div className="container mx-auto px-4 md:px-6 text-center">
         {/* Heading */}
-        <h2 className="text-4xl font-bond mb-4">Powerful Features</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bond mb-4"
+        >
+          Powerful Features
+        </motion.h2>
 
         {/* Subheading */}
-        <div className="flex justify-center items-center my-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex justify-center items-center my-6 text-center"
+        >
           <p className="text-sm md:text-xl lg:text-2xl font-semibold whitespace-nowrap">
             We Offer -- &nbsp;
           </p>
@@ -52,22 +67,32 @@ const FeaturesSection = () => {
             {rotatingTexts[index].substring(0, subIndex)}
             <span className="animate-pulse">|</span>
           </h3>
-        </div>
+        </motion.div>
 
         {/* Features grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {features.map((feature, i) => (
-            <Link key={i} href={feature.link}>
-              <Card className="group border-2 hover:border-primary/70 h-full flex flex-col shadow-md hover:shadow-xl rounded-2xl">
-                <CardContent className="pt-8 text-center flex flex-col items-center">
-                  <div className="mb-5">{feature.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="h-full"
+            >
+              <Link href={feature.link}>
+                <Card className="group border-2 hover:border-primary/70 h-full flex flex-col shadow-md hover:shadow-xl rounded-2xl transition-all duration-300">
+                  <CardContent className="pt-8 text-center flex flex-col items-center">
+                    <div className="mb-5">{feature.icon}</div>
+                    <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>
