@@ -50,13 +50,13 @@ const HowItWorksSection = () => {
               variants={itemVariants}
               className="flex flex-col items-center text-center p-6 rounded-lg bg-background/40 shadow-md space-y-4 transition-transform"
             >
-              <motion.div
-                className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center"
-              >
+              <motion.div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                 {item.icon}
               </motion.div>
               <h3 className="font-semibold text-xl">{item.title}</h3>
-              <p className="text-muted-foreground text-sm">{item.description}</p>
+              <p className="text-muted-foreground text-sm">
+                {item.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

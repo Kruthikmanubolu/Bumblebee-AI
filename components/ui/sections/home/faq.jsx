@@ -33,7 +33,9 @@ const FaqSection = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-4xl font-bond mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-4xl font-bond mb-4">
+            Frequently Asked Questions
+          </h2>
           <p className="text-muted-foreground text-lg">
             Find answers to common questions about our platforms
           </p>

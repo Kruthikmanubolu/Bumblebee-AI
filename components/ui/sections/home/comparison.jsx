@@ -23,7 +23,9 @@ const CustomTooltip = ({ active, payload, label }) => {
         {payload.map((entry, index) => (
           <p key={index} className="text-xs text-muted-foreground">
             {entry.name}:{" "}
-            <span className="font-semibold text-foreground">{entry.value}%</span>
+            <span className="font-semibold text-foreground">
+              {entry.value}%
+            </span>
           </p>
         ))}
       </div>
@@ -98,18 +100,40 @@ const Comparison = () => {
                     {/* Gradient for AI-Assisted */}
                     <linearGradient id="aiGradient" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="#2563eb" stopOpacity={0.9} />
-                      <stop offset="100%" stopColor="#2563eb" stopOpacity={0.2} />
+                      <stop
+                        offset="100%"
+                        stopColor="#2563eb"
+                        stopOpacity={0.2}
+                      />
                     </linearGradient>
                     {/* Gradient for Traditional */}
-                    <linearGradient id="tradGradient" x1="0" y1="0" x2="0" y2="1">
+                    <linearGradient
+                      id="tradGradient"
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="1"
+                    >
                       <stop offset="0%" stopColor="#ef4444" stopOpacity={0.9} />
-                      <stop offset="100%" stopColor="#ef4444" stopOpacity={0.2} />
+                      <stop
+                        offset="100%"
+                        stopColor="#ef4444"
+                        stopOpacity={0.2}
+                      />
                     </linearGradient>
                   </defs>
 
                   <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                  <XAxis dataKey="year" stroke="#94a3b8" tick={{ fontSize: 12 }} />
-                  <YAxis domain={[0, 100]} stroke="#94a3b8" tick={{ fontSize: 12 }} />
+                  <XAxis
+                    dataKey="year"
+                    stroke="#94a3b8"
+                    tick={{ fontSize: 12 }}
+                  />
+                  <YAxis
+                    domain={[0, 100]}
+                    stroke="#94a3b8"
+                    tick={{ fontSize: 12 }}
+                  />
                   <Tooltip content={<CustomTooltip />} />
                   <Legend />
 

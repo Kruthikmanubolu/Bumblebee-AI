@@ -58,7 +58,9 @@ const TemplatesSection = () => {
               <Card className="shadow-lg hover:shadow-xl transition-all duration-300 bg-white/90 backdrop-blur-lg rounded-2xl overflow-hidden">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2">{template.type}</h3>
-                  <p className="text-muted-foreground mb-6">{template.description}</p>
+                  <p className="text-muted-foreground mb-6">
+                    {template.description}
+                  </p>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     {["before", "after"].map((stage) => {
