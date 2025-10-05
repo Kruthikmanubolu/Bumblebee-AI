@@ -145,8 +145,6 @@ const Comparison = () => {
                     dot={{ r: 4, fill: "#2563eb" }}
                     activeDot={{ r: 6, fill: "#1d4ed8" }}
                     name="AI-Assisted"
-                    strokeDasharray="1000"
-                    strokeDashoffset="1000"
                     isAnimationActive={true}
                   />
                   <Line
@@ -157,8 +155,6 @@ const Comparison = () => {
                     dot={{ r: 4, fill: "#ef4444" }}
                     activeDot={{ r: 6, fill: "#b91c1c" }}
                     name="Traditional"
-                    strokeDasharray="1000"
-                    strokeDashoffset="1000"
                     isAnimationActive={true}
                   />
                 </LineChart>
