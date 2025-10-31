@@ -40,7 +40,7 @@ export default async function MockInterviewPage() {
       {user?.industry && user.industry.toLowerCase().startsWith("tech") ? (
         <div className="p-6 rounded-2xl shadow-md bg-white/90 backdrop-blur">
           <h2 className="text-xl font-semibold mb-4">Coding Challenge</h2>
-          <CodingQuestionCard question={sampleQuestion} />
+          <CodingQuestionCard />
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center text-center p-6 border border-dashed rounded-xl bg-gray-50">
